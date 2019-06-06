@@ -51,5 +51,4 @@ echo b$ver${LA}pkgs.$j.s
                   if module in word:
                        dict[repo] = time
                        break
-                       
 
