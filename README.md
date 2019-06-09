@@ -12,40 +12,34 @@ We utilize WoC infrastructure ad follow following steps:
 `if test $LA = 'ipy'; then grepStr='\.(ipynb|IPYNB);'; fi`
 
 2. Obtain all the blobs associated with all versions of these files
-
-`grepStr=$(echo $grepStr|sed 's/;$/$/;s/\^/;/g')
+```
+grepStr=$(echo $grepStr|sed 's/;$/$/;s/\^/;/g')
 
 for j in {0..31}
-
 do zcat ../c2fb/b2fFull$ver$j.s | grep -E "$grepStr" | perl -I /nics/b/home/audris/lib/perl5 -I /nics/b/home/au
     dris/lookup -e 'use cmt; while(<STDIN>){ ($b, @r) = split(/;/); print $_ if ! defined $badBlob{$b};}' | gzip >
-    b2f$ver$LA.$j.gz &
-    
+    b2f$ver$LA.$j.gz &   
 done
-
 wait
-
-echo b2f$ver$LA.$j.gz`
-
+echo b2f$ver$LA.$j.gz
+```
 3. Extract import/from statements by parsing these blobs
-
-`for j in {0..31}
+```
+for j in {0..31}
  do /nics/b/home/audris/bin/lsort ${maxM}G -t\; -k1b,1 --merge \
         <(zcat b$ver${LA}pkgs.$j.gz | lsort ${maxM}G -t\; -k1b,1) \
         <(zcat b$ver${LA}pkgs.$(($j+32)).gz | lsort ${maxM}G -t\; -k1b,1) \
         <(zcat b$ver${LA}pkgs.$(($j+64)).gz | lsort ${maxM}G -t\; -k1b,1) \
         <(zcat b$ver${LA}pkgs.$(($j+96)).gz | lsort ${maxM}G -t\; -k1b,1) | \
-        perl -ane 'print if m/^[0-f]{40};/' | uniq |  gzip > b$ver${LA}pkgs.$j.s &
-        
+        perl -ane 'print if m/^[0-f]{40};/' | uniq |  gzip > b$ver${LA}pkgs.$j.s &      
 done
-
 wait
-
-echo b$ver${LA}pkgs.$j.s`
-
+echo b$ver${LA}pkgs.$j.s
+```
 4. Use time of the associated commit to determine the first time the import statement was created
 
- `dict = {}
+```
+ dict = {}
  for i in range(32):
      command = "zcat /data/play/" + dir_lang + "thruMaps/c2bPtaPkgO" + dir_lang + "." + str(i) + ".gz"
      p1 = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE)
@@ -59,5 +53,5 @@ echo b$ver${LA}pkgs.$j.s`
              for word in entry[5:]:            
                   if module in word:              
                        dict[repo] = time                  
-                       break`
-
+                       break
+```
