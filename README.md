@@ -2,9 +2,9 @@
 A study of the spread and prevalence of AI frameworks used in jupyter notebooks
 
 
-The research questions is what is the uptake of AI frameworks in publi jupyter notebooks
+The research question is, "What is the uptake of AI frameworks in public jupyter notebooks?"
 
-We utilize WoC infrastructure ad follow following steps:
+We utilize WoC infrastructure and follow the following steps:
 
 1. Identify files that are jupyter notebooks
 (how)
@@ -55,3 +55,5 @@ echo b$ver${LA}pkgs.$j.s
                        dict[repo] = time                  
                        break
 ```
+## Example Graph
+![Example Graph](charts/TensorflowVsKeras.png)
