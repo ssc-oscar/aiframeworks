@@ -1,95 +1,88 @@
 import sys
 from datetime import datetime
-from matplotlib.dates import (DateFormatter, epoch2num)
+from matplotlib.dates import DateFormatter, epoch2num
 import matplotlib.pyplot as plt
 import numpy as np
 
-file1 = sys.argv[1]
-file2 = sys.argv[2]
-path1 = "/data/play/ipythruMaps/" + file1
-path2 = "/data/play/ipythruMaps/" + file2
-f1 = open(path1, 'r')
-f2 = open(path2, 'r')
-months1 = []
-months2 = []
-times1 = {}
-times2 = {}
-for line in f1.readlines():
-	l = line.rstrip('\n').split(';')
-	time = l[1]
-	date = str(datetime.fromtimestamp(float(time)))
-	year_month_day = date.split(" ")[0]
-	year_month = "-".join(date.split("-")[:2])
-	year_month = year_month.split("-")
-	time = datetime(int(year_month[0]), int(year_month[1]),1).timestamp()
-	if time not in times1.keys():
-		times1[time] = 1
-	else:
-		times1[time] += 1
+mod_names = []
+master_times = []
 
-for line in f2.readlines():
-	l = line.rstrip('\n').split(';')
-	time = l[1]
-	date = str(datetime.fromtimestamp(float(time)))
-	year_month_day = date.split(" ")[0]
-	year_month = "-".join(date.split("-")[:])
-	year_month = year_month.split("-")
-	time = datetime(int(year_month[0]), int(year_month[1]), 1).timestamp()
-	if time not in times2.keys():
-		times2[time] = 1
-	else:
-		times2[time] += 1
+for i in range(1,len(sys.argv)):
+	file = sys.argv[i]
+	path = "/data/play/ipythruMaps/" + file
+	f = open(path, 'r')
+	months = []
+	times = {}
+	for line in f.readlines():
+		line_entries = line.rstrip('\n').split(';')
+		time = line_entries[1]
+		date = str(datetime.fromtimestamp(float(time)))
+		year_month_day = date.split(" ")[0]
+		year_month = "-".join(date.split("-")[:2])
+		year_month = year_month.split("-")
+		time = datetime(int(year_month[0]), int(year_month[1]),1).timestamp()
+		if time not in times.keys():
+			times[time] = 1
+		else:
+			times[time] += 1
 
-f1.close()
-f2.close()
+	f.close()
+	master_times.append(times)
+	mod_name = str(sys.argv[i]).replace('.first', '').capitalize()
+	if "Keras.applications" in mod_name:
+		mod_name = mod_name.replace('Keras.applications.', '').capitalize()
+	mod_names.append(mod_name)
+	
 
-freq1 = []
-freq2 = []
+# set up the x and y boundaries for the graph
+x_min_times = []
+y_min_times = []
+y_max_times = []
 
-sorted1 = sorted(times1.items(), key = lambda kv: kv[0])
-sorted2 = sorted(times2.items(), key = lambda kv: kv[0])
+for i in range(len(master_times)):
+	x_min_times.append(min(master_times[i].keys()))
+	y_min_times.append(min(master_times[i].values()))
+	y_max_times.append(max(master_times[i].values()))
 
-for key, val in sorted1:
-	freq1.append(val)
+x_min = epoch2num(max(x_min_times))
+y_min = min(y_min_times)
+y_max = max(y_max_times) + 1500
 
-for key, val in sorted2:
-	freq2.append(val)
-
-x_min = epoch2num(min(min(times1.keys()), min(times2.keys())))
-y_min = min(min(times1.values()), min(times2.values()))
-y_max = max(max(times1.values()), max(times2.values())) + 5000
-
-raw1 = np.array([int(t) for t in sorted(times1.keys())])
-raw2 = np.array([int(t) for t in sorted(times2.keys())])
-
-dates1 = epoch2num(raw1)
-dates2 = epoch2num(raw2)
-
-mod_name1 = file1.replace('.first', '').capitalize()
-mod_name2 = file2.replace('.first', '').capitalize()
-
-# plot the data with a legend reference
+# plot each set of times on the line graph
 fig, ax = plt.subplots()
-line1, = ax.plot_date(dates1, freq1, ls = '-', color='r', markevery=[0,-1], label = mod_name1)
-line2, = ax.plot_date(dates2, freq2, ls = '-', color='b', markevery=[0,-1], label = mod_name2)
-ax.legend(loc='best')
+for i in range(len(master_times)):
+	freq = []
+	sorted_times = sorted(master_times[i].items(), key = lambda kv: kv[0])
+
+	for key, val in sorted_times:
+		freq.append(val)
+	
+	raw = np.array([int(t) for t in sorted(master_times[i].keys())])
+	dates = epoch2num(raw)
+
+	line, = ax.plot_date(dates, freq, ls = '-', markevery=[0,-1], label = mod_names[i])
+
 
 # format x axis date ticks
 date_fmt = '%m/%y'
 date_formatter = DateFormatter(date_fmt)
 ax.xaxis.set_major_formatter(date_formatter)
 fig.autofmt_xdate()
-ax.set_xlim([datetime(2014,1,1), datetime(2019,6,6)])
+
+ax.legend(loc='best')
+ax.set_xlim([x_min, datetime(2019,6,6)])
 ax.set_ylim(y_min, y_max)
 ax.grid(ls = 'dotted')
 
-# set x,y labels and title
+# set x,y labels
 plt.xlabel('Dates', fontsize=16)
 plt.ylabel('# of Repos', fontsize=16)
-title = mod_name1 + " vs. " + mod_name2 + " 1st Time Imports"
-fig.suptitle(title, fontsize=18)
 
 # save the graph as a .png picture
-save_file = mod_name1 + 'Vs' + mod_name2 + '.png'
+save_file = mod_names[0]
+for i in range(1,len(mod_names)):
+	save_file += "-vs-" + mod_names[i]
+save_file += ".png"
+
 plt.savefig(save_file, bbox_inches='tight')
 
