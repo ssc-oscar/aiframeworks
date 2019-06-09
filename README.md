@@ -8,9 +8,9 @@ We utilize WoC infrastructure ad follow following steps:
 
 1. Identify files that are jupyter notebooks
 (how)
-
-`if test $LA = 'ipy'; then grepStr='\.(ipynb|IPYNB);'; fi`
-
+```
+if test $LA = 'ipy'; then grepStr='\.(ipynb|IPYNB);'; fi
+```
 2. Obtain all the blobs associated with all versions of these files
 ```
 grepStr=$(echo $grepStr|sed 's/;$/$/;s/\^/;/g')
