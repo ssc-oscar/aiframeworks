@@ -55,3 +55,5 @@ echo b$ver${LA}pkgs.$j.s
                        dict[repo] = time                  
                        break
 ```
+
+![Example Graph](charts/TensorflowVsKeras.png)
