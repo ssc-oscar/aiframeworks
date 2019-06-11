@@ -8,9 +8,9 @@ mod_names = []
 master_times = []
 
 for i in range(1,len(sys.argv)):
-	file = sys.argv[i]
-	path = "/data/play/ipythruMaps/" + file
-	f = open(path, 'r')
+	filename = sys.argv[i]
+	#path = "/data/play/ipythruMaps/" + file
+	f = open(filename, 'r')
 	months = []
 	times = {}
 	for line in f.readlines():
@@ -28,9 +28,18 @@ for i in range(1,len(sys.argv)):
 
 	f.close()
 	master_times.append(times)
-	mod_name = str(sys.argv[i]).replace('.first', '').capitalize()
-	if "Keras.applications" in mod_name:
-		mod_name = mod_name.replace('Keras.applications.', '').capitalize()
+	# combined py/ipynb file
+	if "_combined.first" in filename:
+		mod_name = filename.replace('_combined.first', '')
+
+	# full file path
+	if "/" in mod_name:
+		mod_name = mod_name.split("/")[-1]
+
+	# keras app module
+	if "keras.applications" in mod_name:
+		mod_name = mod_name.replace('keras.applications.', '').capitalize()
+
 	mod_names.append(mod_name)
 	
 
@@ -46,7 +55,7 @@ for i in range(len(master_times)):
 
 x_min = epoch2num(max(x_min_times))
 y_min = min(y_min_times)
-y_max = max(y_max_times) + 1500
+y_max = max(y_max_times) + 100
 
 # plot each set of times on the line graph
 fig, ax = plt.subplots()
@@ -70,7 +79,7 @@ ax.xaxis.set_major_formatter(date_formatter)
 fig.autofmt_xdate()
 
 ax.legend(loc='best')
-ax.set_xlim([x_min, datetime(2019,6,6)])
+ax.set_xlim([x_min, datetime(2019,4,10)])
 ax.set_ylim(y_min, y_max)
 ax.grid(ls = 'dotted')
 
