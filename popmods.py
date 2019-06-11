@@ -12,7 +12,6 @@ Program usage: python popmods.py language_of_file_extension module
 ex) python popmods.py ipynb tensorflow
 '''
 
-dict = {}
 lang = sys.argv[1].lower()
 module = sys.argv[2]
 
@@ -61,25 +60,27 @@ elif lang == "sql":
 elif lang == "swift":
 	dir_lang = "Swift"
 
+dict = {}
 for i in range(32):
+	print("Reading gz file number " + str(i))
 	command = "zcat /data/play/" + dir_lang + "thruMaps/c2bPtaPkgO" + dir_lang + "." + str(i) + ".gz"
 	p1 = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE)
-	p2 = subprocess.Popen("grep " + module, shell=True, stdin=p1.stdout, stdout=subprocess.PIPE) 
+	p2 = subprocess.Popen("egrep -w " + module, shell=True, stdin=p1.stdout, stdout=subprocess.PIPE) 
 	output = p2.communicate()[0]
 
-	for entry in str(output).rstrip('\n').split("\n"):
-		entry = str(entry).split(";")
-		repo, time = entry[1], entry[2]
-		if repo not in dict.keys() or time < dict[repo]:
-			for word in entry[5:]:
-				if module in word:
-					dict[repo] = time
-					break
+	if output != "":
+		for entry in str(output).rstrip('\n').split("\n"):
+			entry = str(entry).split(";")
+			repo, time = entry[1], entry[2]
+			if repo not in dict.keys() or time < dict[repo]:
+				for word in entry[5:]:
+					if module in word:
+						dict[repo] = time
+						break
 	
-	dir = "/data/play/" + dir_lang + "thruMaps/"
-	first_file = dir + module + ".first"
-	f = open(first_file, "a")
+first_file = module + ".first"
+f = open(first_file, "w")
 
-	for key, val in dict.items():
-		f.write(key + ";" + val + "\n")
-	f.close()
+for key, val in dict.items():
+	f.write(key + ";" + val + "\n")
+f.close()
