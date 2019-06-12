@@ -56,4 +56,4 @@ echo b$ver${LA}pkgs.$j.s
                        break
 ```
 ## Example Graph
-![Example Graph](charts/Tensorflow-vs-Keras.png)
+![Example Graph](charts/Resnet50-vs-Vgg16-vs-Inception_v3.png)
