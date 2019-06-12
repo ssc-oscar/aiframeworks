@@ -7,11 +7,14 @@ python popmods.py ipynb tensorflow
 ```
 This will create the file `tensorflow.first` that contains a list of repo names and Unix timestamps of their first time imports for Tensorflow.
 
-##Step 2: Graphing info from .first files
+## Step 2: Graphing info from .first files
 Using modtrends.py, you can graph either one module.first file or multiple files to make comparisons over time. 
 
 If we wanted to compare Tensorflow vs. Keras, for example, run:
 ```
 python3.6 modtrends.py tensorflow.first keras.first
 ```
-You will now have a .PNG file of the graph, `Tensorflow-vs-Keras.PNG`. Running Tensorflow by itself would create `Tensorflow.PNG`
+You will now have a .png file of the graph, `Tensorflow-vs-Keras.png` Running Tensorflow by itself would create `Tensorflow.png`
+
+### Tensorflow-vs-Keras.png
+![Tensorflow-vs-Keras](chars/Tensorflow-vs-Keras.png)
