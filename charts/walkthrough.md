@@ -17,4 +17,4 @@ python3.6 modtrends.py tensorflow.first keras.first
 You will now have a .png file of the graph, `Tensorflow-vs-Keras.png` Running Tensorflow by itself would create `Tensorflow.png`
 
 ### Tensorflow-vs-Keras.png
-![Tensorflow-vs-Keras](chars/Tensorflow-vs-Keras.png)
+![Tensorflow-vs-Keras](Tensorflow-vs-Keras.png)
