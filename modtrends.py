@@ -27,13 +27,20 @@ for i in range(1,len(sys.argv)):
 
 	f.close()
 	master_times.append(times)
+
 	mod_name = filename.replace('.first', '')
+	# combined py/ipynb file
 	if "_combined" in mod_name:
 		mod_name = mod_name.replace('_combined', '')
+
+	# full file path
 	if "/" in mod_name:
 		mod_name = mod_name.split("/")[-1]
+
+	# keras app module
 	if "keras.applications" in mod_name:
 		mod_name = mod_name.replace('keras.applications.', '').capitalize()
+
 	mod_names.append(mod_name)
 	
 
