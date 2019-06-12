@@ -9,7 +9,6 @@ master_times = []
 
 for i in range(1,len(sys.argv)):
 	filename = sys.argv[i]
-	#path = "/data/play/ipythruMaps/" + file
 	f = open(filename, 'r')
 	months = []
 	times = {}
@@ -28,34 +27,23 @@ for i in range(1,len(sys.argv)):
 
 	f.close()
 	master_times.append(times)
-	# combined py/ipynb file
-	if "_combined.first" in filename:
-		mod_name = filename.replace('_combined.first', '')
-
-	# full file path
+	mod_name = filename.replace('.first', '')
+	if "_combined" in mod_name:
+		mod_name = mod_name.replace('_combined', '')
 	if "/" in mod_name:
 		mod_name = mod_name.split("/")[-1]
-
-	# keras app module
 	if "keras.applications" in mod_name:
 		mod_name = mod_name.replace('keras.applications.', '').capitalize()
-
 	mod_names.append(mod_name)
 	
 
-# set up the x and y boundaries for the graph
+# set up the starting x date boundary for the graph
 x_min_times = []
-y_min_times = []
-y_max_times = []
 
 for i in range(len(master_times)):
 	x_min_times.append(min(master_times[i].keys()))
-	y_min_times.append(min(master_times[i].values()))
-	y_max_times.append(max(master_times[i].values()))
 
 x_min = epoch2num(max(x_min_times))
-y_min = min(y_min_times)
-y_max = max(y_max_times) + 100
 
 # plot each set of times on the line graph
 fig, ax = plt.subplots()
@@ -79,13 +67,12 @@ ax.xaxis.set_major_formatter(date_formatter)
 fig.autofmt_xdate()
 
 ax.legend(loc='best')
-ax.set_xlim([x_min, datetime(2019,4,10)])
-ax.set_ylim(y_min, y_max)
+ax.set_xlim([x_min, datetime(2019,4,20)])
 ax.grid(ls = 'dotted')
 
 # set x,y labels
-plt.xlabel('Dates', fontsize=16)
-plt.ylabel('# of Repos', fontsize=16)
+plt.xlabel('Dates (mm/yy)', fontsize=16)
+plt.ylabel('Number of Repos', fontsize=16)
 
 # save the graph as a .png picture
 save_file = mod_names[0]
