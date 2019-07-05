@@ -341,7 +341,7 @@ sharath34_Knn-and-j48-implementation-on-iris-in-r;1455738951
 EastsidePreparatorySchool_APSDE;1492812031
 hirakoba95_first-git;1546070582
 csornaigyula_CEU-DS;1488729266
-rforge_zooimage;1238233997
+rforge_zooimage;1238588123
 sedayi_AdvComputing;1454626714
 lucianosilva44_Machine_Learning_Course_Luciano_Augusto;1541357739
 zhmxu_Model-Comparison;1409406235
@@ -631,7 +631,7 @@ Smutek-k_Machine-Learning;1459871095
 rishikeshwar_ML-Project;1541955426
 pnandak_spotfire;1374014537
 ja153903_MachineLearningAZ;1510125890
-hardik-uppal_stat-class;1545746692
+Gulsumoz_Spam-filtering-ML;1469521767
 iamsmnt_Project_Churn;1534254272
 dave-marmor_Machine-Learning-Exercises-for-Fun;1520993560
 dexlau_GADataScience2013;1374372410
@@ -805,7 +805,6 @@ sanketfall2014_Implementation-of-classifiers-in-R;1453153536
 froxio_STT3850;1395325122
 prabhabhat_Expedia_Hotel_Predictions;1472074292
 TroyHernandez_sshcc;1395603412
-neocxi_stat133;1406044687
 adamleo_Using_Machine_Learning;1489023784
 LaCastro_fluantigen;1506377061
 chadchouGitHub_DataProductAssignment;1419171741
@@ -1038,7 +1037,6 @@ arkada38_R-statistics;1473431909
 Y-H-Zhao_Machine_learning-R;1526528287
 dithya96_Statistical-Modelling-I;1551408205
 rouancon_Data-Mining;1552493112
-Gulsumoz_Spam-filtering-ML;1469521767
 harsh2204_machine-learning-az;1553989917
 RNogales94_xgboost_regularization_tutorial;1540904148
 Swathiu_MachineLearningA-Z;1534379166
@@ -1696,7 +1694,6 @@ cran_BarcodingR;1468922771
 NervousBlakedown_machine-learning;1541442427
 cran_mda;1095206400
 srajput1_KDDM;1526327138
-lgatto_MLInterfaces;1090678948
 wilmeragsgh_TACD;1438031692
 PURVA-REDKAR_R--islr-exercises;1541130788
 shuklasonika_Intro-to-Data-Mining-Machine-Learning;1525732179
@@ -2075,7 +2072,6 @@ Chinadrew_MachineLearning;1517473432
 lawrenceevalyn_DHSI-2015;1433957159
 Aaradhana1996_Machine-Learning;1553165665
 MAKU315_Master-project;1521119985
-sjkay_R;1406044687
 mynameislaure_ML-UFMG;1477097597
 ruit_mlr;1397820964
 heenabansal_R-projects;1525674449
@@ -2290,7 +2286,6 @@ DreamChaserRx_First-Com;1449663009
 adityasubramanian_gesture_recognition;1458141038
 praveen204_cmpe274;1481613369
 karshyap_Bayesian_methods_for-protenomics;1486951991
-neemask_meta-core;1461177460
 mjazayeri_ADR;1466712874
 jesestsana93_R;1513366717
 alexey-the-programmer_test;1526319691
@@ -2772,7 +2767,6 @@ damiansp_R;1463705343
 Katiedaisey_ClassOver;1488343778
 ab1989_LVQ-KNN;1532674445
 williammasters_RegisDSeducation;1497581889
-vkrit_data-science-class;1439953361
 EvanKaeding_datacamp;1541394072
 KennyYahir_proyectos-diplomado-2016;1466734190
 Dayodadada_data-mining;1505713317
@@ -3160,7 +3154,7 @@ bpk1bpk1_Algorithms-Project;1501549111
 jerryzlau_machine_learning_a-z;1531004753
 dasscheman_HarvardX-course;1435134229
 AxelFurlanF_Udemy-Machine-Learning;1501855092
-Bioconductor-mirror_RPA;1399973695
+Bioconductor-mirror_RPA;1402425589
 VivekKumarNeu_ADS-Midterm;1479531061
 anandansundar_Machine-Learning;1462844516
 leszekk_ML_with_R;1550199337
@@ -3948,7 +3942,7 @@ analystfreakabhi_DataScience_guide;1492926822
 mrfrappe_UG_Inteligencja_obliczeniowa;1545220303
 andyclam_Coursera_Getting_and_Cleaning_Data;1415591419
 QutEcoacoustics_plos-visualization-paper;1516075937
-bioconductor.org_packages_maPredictDSC;1372786299
+bioconductor.org_packages_maPredictDSC;1373337868
 eryaswa_lecture0;1553460755
 bijoyandas_Machine-Learning-Documents;1514559176
 dharm18_advanced-data-mining-tutorials;1550153663
@@ -4313,7 +4307,6 @@ xwang234_ovarian;1507237762
 red7blue8pj9_pitts-study;1551645022
 LexyBrooks_DAMAt3;1540339998
 imyeonn_MachineLearning;1486382370
-bioc_packages_flowBin;1387495531
 datacruiser_CreditCard;1544008684
 KrishnaLogan_Churn-Reduction;1531398206
 PeterKoka1_ISLR-chapter-exercises;1508114112
@@ -4983,7 +4976,7 @@ aniket-sarkar-tcs_Reproducible_Research;1505540685
 keerthitejakonuri_Wine-Dataset-Analysis;1500491606
 spattana-s_MachineLearning;1539086090
 sreeshan90_Machine-Learning-CS6375-;1447804952
-chbernau_CMA;1209770082
+chbernau_CMA;1261560407
 dmitryhd_vacancy_analysis;1429553228
 sanjarahmadov_Analysis-App-on-Stock-Data;1483062611
 shr612_ISLR;1468902253
@@ -5072,7 +5065,6 @@ perrajuv_Data_Analysis_in_R;1431388738
 krean-naidoo_wine_quality;1509579292
 loulou-hz_ML_methods;1508735320
 JamesTurman_Data-Analysis;1479583215
-bioc_packages_BioSeqClass;1255133824
 joanby_curso-bussor-datos-2018;1538050154
 StanSilas_Naive-bayes-in-R-cs-6375-;1477202507
 Avi108_LoanApproval;1491679069
@@ -5169,7 +5161,6 @@ fuadcan_ML;1514998538
 dpmeltz_shiny_server;1551835368
 Dharmam_Machine-Learning;1464016243
 isjo1031_isjofunc;1519790668
-max22260_Identification-of-the-class-of-English-text-among-several-classes;1529080886
 rishi-ag_kForest;1427872953
 matin-ufl_ROAMM-Analysis;1462216672
 acmayuen_openrice;1503397945
@@ -5501,7 +5492,7 @@ sahuvaibhav_DMG2;1440082582
 andrepvieira_courses;1551981994
 bagusco_pemodelanklasifikasi;1520221999
 arjunsaw_ISLR;1492981865
-jgraycar_stat133;1406044686
+jgraycar_stat133;1421876946
 gangadhardixit_Data-science-implementations-;1523007708
 jwilber_old_website;1478507546
 zfsang_machine_learning;1423670696
@@ -5590,7 +5581,7 @@ mkiang_intro-ci-shortcourse;1489120999
 perezjoan_Robust-SOM-SuperSOM-Clustering;1549988485
 mezud_ml-class;1480011272
 tyol_R;1553010254
-jhkim81691_stat133;1406044686
+jhkim81691_stat133;1406045578
 jquacinella_IS621_Assignments;1426816657
 myytchYY_TYmyytch.github.io;1522345060
 Miyake-Diogo_Artificial_Inteligence_and_MachineLearning_Formation-Udemy;1530542693
@@ -5709,7 +5700,6 @@ brokerstir_MachineLearningA-Z;1524063902
 jwframe28_StatisticalLearningMethodsExamples;1490996211
 mihawk2016_rStudyR;1502757084
 micfloy_OS4118;1535942167
-jchaskell_DataViz-class;1440279364
 richarddeng88_sprintleaf;1445267939
 mezud_ML-project;1481167411
 EthanSystem_R;1542624803
@@ -6931,7 +6921,6 @@ theGeneral902_JoaT-Linux;1486080248
 eric-yi_research;1552826333
 snehpahilwani_udemy-python-machinelearningaz;1501461972
 rohitkondekar_Machine-Learning---R;1385654577
-atracordis_svm-one-class-text-classifier;1527095294
 gsabato_Project02-CancerPrediction;1513732798
 BKuasney_Book_Mastering_ML_R;1526604297
 amkustagi_MS-in-Business-Intelligence-and-Analytics-Rockhurst-University;1483924345
@@ -7021,7 +7010,6 @@ mbrahm4_ProjectGettingandCleaning;1461560005
 Amolghogale_SUV-Car-Sales-Through-Social-Media;1506162019
 Heungjin_DataScience;1499861825
 ankita-sharan_employee-absenteeism;1532445184
-canagnos_mcp;1486075634
 naranjja_clases;1434576947
 vgsankar_ActivityRecognition;1450062097
 ltsun_INSEADjan2014;1389432048
@@ -7405,7 +7393,7 @@ ZurielTorres_CursoR;1496796010
 tomaspv_KNN;1528398490
 susantamoh84_R-Learnings;1541413129
 mothaibatacungmua_CrackingESL;1469734501
-rforge_raster;1369513490
+rforge_raster;1371218992
 vishalyadao786_My_Git_Repository;1504729259
 kishkp_Data-608---Knowledge-and-Visual-Analytics;1488015090
 etsafe11_predicting_iris_species;1511633946
