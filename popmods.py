@@ -12,6 +12,7 @@ Program usage: python popmods.py language_of_file_extension module
 ex) python popmods.py ipynb tensorflow
 '''
 
+dict = {}
 lang = sys.argv[1].lower()
 module = sys.argv[2]
 
@@ -34,7 +35,7 @@ elif lang == "ipynb":
 elif lang == "java":
 	dir_lang = "java"
 elif lang == "julia":
-	dir_lang == "jl"
+	dir_lang = "jl"
 elif lang == "js":
 	dir_lang = "JS"
 elif lang == "lua":
@@ -60,7 +61,7 @@ elif lang == "sql":
 elif lang == "swift":
 	dir_lang = "Swift"
 
-dict = {}
+times = []
 for i in range(32):
 	print("Reading gz file number " + str(i))
 	command = "zcat /data/play/" + dir_lang + "thruMaps/c2bPtaPkgO" + dir_lang + "." + str(i) + ".gz"
@@ -72,6 +73,10 @@ for i in range(32):
 		for entry in str(output).rstrip('\n').split("\n"):
 			entry = str(entry).split(";")
 			repo, time = entry[1], entry[2]
+			if time in times:
+				continue
+			else:
+				times.append(time)
 			if repo not in dict.keys() or time < dict[repo]:
 				for word in entry[5:]:
 					if module in word:
