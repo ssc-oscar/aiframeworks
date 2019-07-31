@@ -87,7 +87,7 @@ plt.xlabel('Dates (mm/yy)', fontsize=16)
 plt.ylabel('Number of Repos', fontsize=16)
 
 # save the graph as a .png picture
-save_file = "tmp/aiframeworks/charts/ipynb_charts/keras_apps/" + mod_names[0]
+save_file = mod_names[0]
 for i in range(1,len(mod_names)):
 	save_file += "-vs-" + mod_names[i]
 save_file += ".png"
