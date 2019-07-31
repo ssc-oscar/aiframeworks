@@ -56,4 +56,4 @@ echo b$ver${LA}pkgs.$j.s
                        break
 ```
 ## Example Graph for some keras.applications modules
-![Example Graph](charts/keras_apps/Resnet50-vs-Vgg16-vs-Inception_v3.png)
+![Example Graph](charts/py_and_ipynb_combined/keras_apps/Resnet50-vs-Vgg16-vs-Inception_v3.png)
